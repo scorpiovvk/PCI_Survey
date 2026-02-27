@@ -5,43 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Market Research Questionnaire – Cardiology Stent Study</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root {
-  --bg: #080f1e;
-  --bg2: #0d1a30;
-  --bg3: #112240;
-  --card: #0f1f38;
-  --card2: #162844;
-  --border: #1e3558;
-  --border2: #264570;
-  --teal: #00c4cc;
-  --teal2: #00a8b0;
-  --teal-faint: rgba(0,196,204,0.08);
-  --teal-faint2: rgba(0,196,204,0.15);
-  --amber: #f5a623;
-  --amber-faint: rgba(245,166,35,0.1);
-  --rose: #e05c6b;
-  --rose-faint: rgba(224,92,107,0.1);
-  --green: #3ecf8e;
-  --green-faint: rgba(62,207,142,0.1);
-  --text: #e8edf5;
-  --text2: #9ab0cc;
-  --text3: #5a7a9a;
-  --white: #ffffff;
-  --evidence-c: #00c4cc;
-  --experience-c: #a78bfa;
-  --economics-c: #f5a623;
+  --bg: #080f1e; --bg2: #0d1a30; --bg3: #112240; --card: #0f1f38; --card2: #162844;
+  --border: #1e3558; --border2: #264570; --teal: #00c4cc; --teal2: #00a8b0;
+  --teal-faint: rgba(0,196,204,0.08); --teal-faint2: rgba(0,196,204,0.15);
+  --amber: #f5a623; --rose: #e05c6b; --green: #3ecf8e;
+  --text: #e8edf5; --text2: #9ab0cc; --text3: #5a7a9a; --white: #ffffff;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body {
-  font-family: 'IBM Plex Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+body { font-family: 'IBM Plex Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
 
 /* ========= LANDING ========= */
 .landing { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 24px; position: relative; overflow: hidden; }
@@ -111,10 +85,6 @@ body {
 .sem-btn { flex: 1; height: 36px; background: var(--bg3); border: 1.5px solid var(--border); border-radius: 6px; cursor: pointer; transition: all 0.18s; position: relative; }
 .sem-btn:hover { border-color: var(--teal); background: var(--teal-faint); }
 .sem-btn.selected { background: var(--teal-faint2); border-color: var(--teal); }
-.sem-btn:nth-child(1), .sem-btn:nth-child(7) { height: 28px; border-radius: 5px; }
-.sem-btn:nth-child(2), .sem-btn:nth-child(6) { height: 32px; }
-.sem-btn:nth-child(3), .sem-btn:nth-child(5) { height: 34px; }
-.sem-btn:nth-child(4) { height: 36px; }
 .radio-group { display: flex; flex-direction: column; gap: 10px; }
 .radio-opt { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--bg3); border: 1.5px solid var(--border); border-radius: 10px; cursor: pointer; transition: all 0.18s; font-size: 13.5px; color: var(--text2); }
 .radio-opt:hover { border-color: var(--teal2); color: var(--text); background: var(--teal-faint); }
@@ -135,15 +105,6 @@ body {
 .rank-num { width: 26px; height: 26px; background: var(--teal-faint2); border: 1px solid rgba(0,196,204,0.25); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; color: var(--teal); flex-shrink: 0; }
 .rank-text { font-size: 13.5px; color: var(--text2); }
 .rank-handle { margin-left: auto; color: var(--text3); font-size: 14px; }
-.q-select { width: 100%; background: var(--bg3); border: 1.5px solid var(--border); border-radius: 10px; padding: 12px 16px; color: var(--text); font-family: 'IBM Plex Sans', sans-serif; font-size: 13.5px; appearance: none; cursor: pointer; transition: border-color 0.2s; outline: none; }
-.q-select:focus { border-color: var(--teal); }
-.q-select option { background: var(--bg3); color: var(--text); }
-.vas-wrap { padding: 8px 0; }
-.vas-slider { -webkit-appearance: none; width: 100%; height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--teal) var(--pct, 50%), var(--border) var(--pct, 50%)); outline: none; cursor: pointer; margin: 10px 0; }
-.vas-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px rgba(0,196,204,0.15); cursor: pointer; transition: box-shadow 0.2s; }
-.vas-slider::-webkit-slider-thumb:hover { box-shadow: 0 0 0 7px rgba(0,196,204,0.2); }
-.vas-labels { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--text3); margin-top: 2px; }
-.vas-value { text-align: center; font-family: 'IBM Plex Mono', monospace; font-size: 22px; font-weight: 500; color: var(--teal); margin-top: 6px; }
 .q-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
 .btn-primary { background: var(--teal); color: var(--bg); border: none; padding: 13px 32px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'IBM Plex Sans', sans-serif; transition: all 0.2s; letter-spacing: 0.02em; }
 .btn-primary:hover { background: #00d8e0; box-shadow: 0 6px 24px rgba(0,196,204,0.3); transform: translateY(-1px); }
@@ -155,128 +116,48 @@ body {
 .validation-msg.show { display: block; }
 .q-card.invalid { border-color: rgba(224,92,107,0.5); }
 
-/* ========= REPORT ========= */
+/* ========= THANK YOU SHELL ========= */
 .report-shell { display: none; }
-.report-shell.active { display: block; }
-.report-header { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 40px 56px 36px; position: relative; overflow: hidden; }
-.report-header::after { content: ''; position: absolute; top: -100px; right: -80px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(0,196,204,0.08), transparent 60%); }
-.report-meta { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text3); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
-.report-header h1 { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; color: var(--white); margin-bottom: 6px; }
-.report-header .report-subtitle { font-size: 14px; color: var(--text2); font-weight: 300; }
-.report-cohort-badge { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; background: var(--teal-faint2); border: 1px solid rgba(0,196,204,0.25); padding: 7px 18px; border-radius: 20px; font-size: 13px; font-weight: 600; color: var(--teal); }
-.report-body { max-width: 1100px; margin: 0 auto; padding: 48px 40px 80px; }
-.segment-card { background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%); border: 1px solid var(--border); border-radius: 20px; padding: 36px; margin-bottom: 36px; position: relative; overflow: hidden; }
-.segment-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(0,196,204,0.08), transparent 60%); }
-.segment-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text3); margin-bottom: 10px; }
-.segment-name { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--white); font-weight: 400; margin-bottom: 8px; }
-.segment-desc { font-size: 14px; color: var(--text2); line-height: 1.7; max-width: 660px; font-weight: 300; }
-.segment-confidence { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
-.sc-label { font-size: 12px; color: var(--text3); }
-.sc-bar { flex: 1; height: 6px; background: var(--border); border-radius: 3px; max-width: 200px; }
-.sc-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--teal), #00e8f0); }
-.sc-pct { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--teal); font-weight: 500; }
-.scores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 36px; }
-.score-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; text-align: center; }
-.score-card .sc-dim { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; }
-.score-card .sc-val { font-size: 38px; font-family: 'Playfair Display', serif; font-weight: 400; margin-bottom: 4px; }
-.score-card .sc-interp { font-size: 11px; color: var(--text3); }
-.score-card.evidence .sc-dim { color: var(--evidence-c); }
-.score-card.evidence .sc-val { color: var(--evidence-c); }
-.score-card.experience .sc-dim { color: var(--experience-c); }
-.score-card.experience .sc-val { color: var(--experience-c); }
-.score-card.economics .sc-dim { color: var(--economics-c); }
-.score-card.economics .sc-val { color: var(--economics-c); }
-.score-card.adoption .sc-dim { color: var(--green); }
-.score-card.adoption .sc-val { color: var(--green); }
-.charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 36px; }
-.chart-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px; }
-.chart-card h3 { font-size: 14px; font-weight: 600; color: var(--text2); margin-bottom: 20px; font-family: 'IBM Plex Sans', sans-serif; letter-spacing: 0.01em; }
-.chart-container { position: relative; height: 260px; }
-.findings-section { margin-bottom: 36px; }
-.findings-section h2 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 20px; }
-.finding-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
-.finding-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-.finding-text { flex: 1; }
-.finding-text strong { display: block; font-size: 13.5px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-.finding-text p { font-size: 13px; color: var(--text2); line-height: 1.55; }
-.gaps-table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 14px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 36px; }
-.gaps-table thead tr { background: var(--bg2); }
-.gaps-table thead th { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text3); padding: 14px 18px; text-align: left; }
-.gaps-table tbody tr { border-bottom: 1px solid var(--border); }
-.gaps-table tbody tr:last-child { border-bottom: none; }
-.gaps-table tbody td { padding: 14px 18px; font-size: 13px; color: var(--text2); vertical-align: top; line-height: 1.5; }
-.gaps-table tbody td:first-child { color: var(--white); font-weight: 500; }
-.gap-indicator { display: inline-block; padding: 2px 10px; border-radius: 5px; font-size: 10.5px; font-weight: 600; font-family: 'IBM Plex Mono', monospace; }
-.gap-high { background: rgba(224,92,107,0.15); color: var(--rose); }
-.gap-med { background: rgba(245,166,35,0.12); color: var(--amber); }
-.gap-low { background: rgba(62,207,142,0.1); color: var(--green); }
-.recs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 36px; }
-.rec-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px; border-top: 3px solid var(--teal); }
-.rec-card.amber-top { border-top-color: var(--amber); }
-.rec-card.purple-top { border-top-color: #a78bfa; }
-.rec-priority { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text3); margin-bottom: 8px; }
-.rec-card h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
-.rec-card p { font-size: 12.5px; color: var(--text2); line-height: 1.55; }
-.report-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
-.btn-outline { background: none; border: 1px solid var(--border); color: var(--text2); padding: 10px 22px; border-radius: 9px; font-size: 13px; cursor: pointer; font-family: 'IBM Plex Sans', sans-serif; transition: all 0.2s; display: flex; align-items: center; gap: 7px; }
-.btn-outline:hover { border-color: var(--teal); color: var(--teal); }
-
-@media (max-width: 700px) {
-  .q-header { padding: 14px 16px; }
-  .q-body { padding: 28px 16px; }
-  .report-header { padding: 28px 20px; }
-  .report-body { padding: 28px 16px 60px; }
-  .charts-row { grid-template-columns: 1fr; }
-  .likert-btn .l-label { display: none; }
-}
+.report-shell.active { display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 100vh; text-align: center; padding: 20px;}
+.thank-you-card { background: var(--card); border: 1px solid var(--teal); border-radius: 16px; padding: 48px; max-width: 600px; box-shadow: 0 12px 40px rgba(0,196,204,0.12); }
+.thank-you-card h1 { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; color: var(--white); margin-bottom: 16px; }
+.thank-you-card p { font-size: 15px; color: var(--text2); line-height: 1.7; margin-bottom: 32px; font-weight: 300; }
 .step-dots { display: flex; gap: 6px; align-items: center; }
 .step-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border2); transition: all 0.3s; }
 .step-dot.done { background: var(--teal); }
 .step-dot.current { background: var(--teal); width: 18px; border-radius: 4px; }
-@media print {
-  .q-shell, .landing { display: none !important; }
-  .report-shell { display: block !important; }
-  .report-actions, .back-btn { display: none; }
-  body { background: white; color: black; }
-}
 </style>
 </head>
 <body>
 
 <div class="landing" id="landing">
-  <div class="landing-bg"></div>
-  <div class="landing-grid"></div>
+  <div class="landing-bg"></div><div class="landing-grid"></div>
   <div class="landing-badge">Cardiology Stent Market Research · India / APAC</div>
   <h1>Behavioral &amp; Decision Driver<br><em>Research Questionnaire</em></h1>
-  <p class="landing-sub">A psychometric-grounded stakeholder survey designed to map evidence, experience, and economic drivers of stent adoption. Select your respondent profile to begin.</p>
+  <p class="landing-sub">A psychometric-grounded stakeholder survey designed to map evidence, experience, and economic drivers of stent adoption.</p>
   <div class="cohort-grid">
     <div class="cohort-card" onclick="startSurvey('ic')">
       <span class="icon">🫀</span><div class="c-title">Interventional Cardiologist</div>
       <div class="c-desc">Stent selection, procedural experience &amp; economic context</div>
-      <div class="c-time">~12 min · 28 questions</div>
     </div>
     <div class="cohort-card" onclick="startSurvey('admin')">
       <span class="icon">🏥</span><div class="c-title">Hospital Admin / Procurement</div>
       <div class="c-desc">Formulary criteria, vendor selection &amp; economics</div>
-      <div class="c-time">~8 min · 20 questions</div>
     </div>
     <div class="cohort-card" onclick="startSurvey('payer')">
       <span class="icon">📋</span><div class="c-title">Payer / Insurance</div>
       <div class="c-desc">Reimbursement, HTA appetite &amp; value contracting</div>
-      <div class="c-time">~7 min · 18 questions</div>
     </div>
     <div class="cohort-card" onclick="startSurvey('gp')">
       <span class="icon">👨‍⚕️</span><div class="c-title">GP / Referring Physician</div>
       <div class="c-desc">Referral confidence, PCI knowledge &amp; patient counseling</div>
-      <div class="c-time">~8 min · 20 questions</div>
     </div>
     <div class="cohort-card" onclick="startSurvey('patient')">
       <span class="icon">🧑‍🦯</span><div class="c-title">Patient / Caregiver</div>
       <div class="c-desc">Understanding, discharge experience &amp; adherence</div>
-      <div class="c-time">~7 min · 21 questions</div>
     </div>
   </div>
-  <p class="landing-note">All responses are confidential and used solely for market research purposes. No personally identifiable information is collected.</p>
+  <p class="landing-note">All responses are confidential and used solely for market research purposes.</p>
 </div>
 
 <div class="q-shell" id="q-shell">
@@ -296,38 +177,25 @@ body {
 </div>
 
 <div class="report-shell" id="report-shell">
-  <div class="report-header">
-    <div class="report-meta" id="r-meta">Outcome Analysis Report · Cardiology Stent Research</div>
-    <h1 id="r-title">Behavioral Decision Driver Analysis</h1>
-    <p class="report-subtitle" id="r-subtitle">Psychometric outcome analysis based on your responses</p>
-    <div class="report-cohort-badge" id="r-cohort-badge">🫀 Interventional Cardiologist</div>
+  <div class="thank-you-card">
+    <span style="font-size: 48px; margin-bottom: 16px; display: block;">✓</span>
+    <h1>Submission Complete</h1>
+    <p>Thank you for your participation. Your responses have been securely recorded and sent to the research team for analysis. You may now safely close this window.</p>
+    <button class="btn-sec" onclick="window.location.reload()">Return to Home</button>
   </div>
-  <div class="report-body" id="report-body"></div>
 </div>
 
 <script>
-let currentCohort = null;
-let currentSection = 0;
-let responses = {};
-let reportData = {};
-
-const COHORT_LABELS = {
-  ic: { label: 'Interventional Cardiologist', icon: '🫀', badge: 'IC' },
-  admin: { label: 'Hospital Admin / Procurement', icon: '🏥', badge: 'ADMIN' },
-  payer: { label: 'Payer / Insurance', icon: '📋', badge: 'PAYER' },
-  gp: { label: 'GP / Referring Physician', icon: '👨‍⚕️', badge: 'GP' },
-  patient: { label: 'Patient / Caregiver', icon: '🧑‍🦯', badge: 'PATIENT' }
-};
-
+let currentCohort = null; let currentSection = 0; let responses = {};
+const COHORT_LABELS = { ic: { badge: 'IC' }, admin: { badge: 'ADMIN' }, payer: { badge: 'PAYER' }, gp: { badge: 'GP' }, patient: { badge: 'PATIENT' } };
 const LIKERT5 = { type:'likert', scale:5, labels:['Strongly\nDisagree','Disagree','Neutral','Agree','Strongly\nAgree'] };
-const LIKERT7 = { type:'likert', scale:7, labels:['Strongly\nDisagree','','','Neutral','','','Strongly\nAgree'] };
 
 const SURVEYS = {
 ic: [
   { title: 'Respondent Background', lens: 'demo', lensLabel: 'Demographics & Practice Profile', intro: 'This section establishes your practice profile to contextualise your responses. All data is anonymous.', questions: [
       { id:'ic_yrs', text:'How many years have you been practising interventional cardiology?', type:'radio', options:['< 2 years','2–5 years','6–10 years','11–20 years','> 20 years'] },
       { id:'ic_hosp', text:'What best describes your <strong>primary practice setting?</strong>', type:'radio', options:['Corporate tertiary hospital / chain','Mid-tier private hospital','Government / teaching hospital','Standalone cath lab / day-care centre','Multi-site practice (private + government)'] },
-      { id:'ic_geo', text:'What is the geographic tier of your primary practice location?', type:'radio', options:['Tier-1 metro (Mumbai, Delhi, Bengaluru, Chennai, Hyderabad, Kolkata)','Tier-2 city','Tier-3 / semi-urban','Rural / sub-district'] },
+      { id:'ic_geo', text:'What is the geographic tier of your primary practice location?', type:'radio', options:['Tier-1 metro','Tier-2 city','Tier-3 / semi-urban','Rural / sub-district'] },
       { id:'ic_vol', text:'Approximately how many PCI procedures do you personally perform per month?', type:'radio', options:['< 10','10–25','26–50','51–80','> 80'] },
       { id:'ic_emp', text:'Which best describes your employment / income model?', type:'radio', options:['Fixed salary only','Salary + performance / productivity bonus','Fee-for-service (private billing)','Cath lab partner / equity share','Mixed public + private'] }
     ]
@@ -341,10 +209,10 @@ ic: [
       { id:'ic_e6', text:'Peer opinion from colleagues I respect influences my stent selection <strong>more than published data</strong>.', ...LIKERT5, psycho:'Peer vs evidence dependency' }
     ]
   },
-  { title: 'Experience Lens', lens: 'experience', lensLabel: 'Procedural Experience & Unmet Needs', intro: 'These questions explore your hands-on experience with current stent technologies and where clinical gaps exist in your practice.', questions: [
+  { title: 'Experience Lens', lens: 'experience', lensLabel: 'Procedural Experience & Unmet Needs', intro: 'These questions explore your hands-on experience with current stent technologies.', questions: [
       { id:'ic_x1', text:'My current <strong>workhorse stent performs adequately</strong> across the full range of lesions I routinely encounter.', ...LIKERT5, reverse:true },
-      { id:'ic_x2', text:'I have experienced <strong>deliverability challenges</strong> with my current stent in complex anatomies (e.g., calcified, tortuous, small vessel).', ...LIKERT5 },
-      { id:'ic_x3', text:'I am <strong>comfortable using newer DES platforms</strong> for complex lesions (bifurcation, CTO, small vessel, diabetic).', ...LIKERT5 },
+      { id:'ic_x2', text:'I have experienced <strong>deliverability challenges</strong> with my current stent in complex anatomies.', ...LIKERT5 },
+      { id:'ic_x3', text:'I am <strong>comfortable using newer DES platforms</strong> for complex lesions.', ...LIKERT5 },
       { id:'ic_x4', text:'A prior adverse outcome associated with a stent brand has <strong>affected my willingness to use it again.</strong>', ...LIKERT5 },
       { id:'ic_x5', text:'I regularly encounter clinical scenarios where I feel I need a <strong>better stent option</strong> than what I currently use.', ...LIKERT5 },
       { id:'ic_x6', text:'Structured <strong>training and hands-on support</strong> from a device company meaningfully influences my comfort with adopting a new stent.', ...LIKERT5 },
@@ -354,147 +222,147 @@ ic: [
   { title: 'Economics Lens', lens: 'economics', lensLabel: 'Economic Drivers & Constraints', intro: 'This section explores the financial and structural factors that influence your stent selection.', questions: [
       { id:'ic_ec1', text:'<strong>Package pricing or cath lab cost caps</strong> are a significant constraint on my stent selection decisions.', ...LIKERT5 },
       { id:'ic_ec2', text:'<strong>Patient out-of-pocket cost</strong> influences which stent I select more than clinical evidence does.', ...LIKERT5 },
-      { id:'ic_ec3', text:'My <strong>hospital administration or procurement team</strong> actively influences my stent choice through formulary decisions or pricing.', ...LIKERT5 },
+      { id:'ic_ec3', text:'My <strong>hospital administration or procurement team</strong> actively influences my stent choice.', ...LIKERT5 },
       { id:'ic_ec4', text:'I would consider switching to a stent with superior outcomes data even if it costs <strong>20–30% more</strong> than my current option.', ...LIKERT5 },
-      { id:'ic_ec5', text:'I am aware of and consider <strong>total episode cost</strong> (including re-PCI risk, LOS, readmission) when selecting stents — not just unit price.', ...LIKERT5 },
-      { id:'ic_rank', text:'<strong>Rank the following factors</strong> in order of importance when you select a stent brand (drag to reorder — 1 = most important).', type:'rank', options:['Clinical outcomes data (RCT/registry)','Deliverability / ease of use','Patient affordability / package fit','Company training & clinical support','Peer recommendation / KOL endorsement','Hospital formulary / procurement decision'] },
-      { id:'ic_adopt', text:'When a new stent enters your market, which statement best describes your typical behaviour?', type:'radio', options:['I adopt early — I actively trial new technologies before peers','I wait for 2–3 trusted peers to use it first, then adopt','I wait for substantial published data from my patient population','I rarely change — my workhorse meets my clinical needs','My adoption is driven primarily by hospital / commercial decisions'] }
+      { id:'ic_ec5', text:'I am aware of and consider <strong>total episode cost</strong> when selecting stents — not just unit price.', ...LIKERT5 },
+      { id:'ic_rank', text:'<strong>Rank the following factors</strong> in order of importance when you select a stent brand (drag to reorder — 1 = most important).', type:'rank', options:['Clinical outcomes data','Deliverability / ease of use','Patient affordability','Company training & clinical support','Peer recommendation','Hospital formulary decision'] },
+      { id:'ic_adopt', text:'When a new stent enters your market, which statement best describes your typical behaviour?', type:'radio', options:['I adopt early — I actively trial new technologies before peers','I wait for 2–3 trusted peers to use it first, then adopt','I wait for substantial published data from my patient population','I rarely change — my workhorse meets my clinical needs','My adoption is driven primarily by hospital decisions'] }
     ]
   }
 ],
 admin: [
-  { title: 'Respondent Background', lens: 'demo', lensLabel: 'Role & Institution Profile', intro: 'Please provide context about your institution and role to enable accurate segmentation of your responses.', questions: [
+  { title: 'Respondent Background', lens: 'demo', lensLabel: 'Role & Institution Profile', intro: 'Please provide context about your institution and role.', questions: [
       { id:'ad_role', text:'Which best describes your role?', type:'radio', options:['Hospital Director / CEO','Medical Superintendent / CMO','Head of Procurement / Supply Chain','Finance Director / CFO','Cath Lab / Cardiology Department Head','Clinical Operations Manager'] },
-      { id:'ad_htype', text:'Your hospital type:', type:'radio', options:['Corporate chain (≥3 hospitals)','Independent private tertiary','Government / teaching hospital','Mid-tier private (< 200 beds)','Specialty cardiac centre'] },
+      { id:'ad_htype', text:'Your hospital type:', type:'radio', options:['Corporate chain','Independent private tertiary','Government / teaching hospital','Mid-tier private','Specialty cardiac centre'] },
       { id:'ad_beds', text:'Approximate bed count:', type:'radio', options:['< 100 beds','100–300 beds','301–500 beds','501–1000 beds','> 1000 beds'] },
       { id:'ad_pci', text:'Approximate annual PCI volume at your facility:', type:'radio', options:['< 200','200–500','501–1000','1001–2000','> 2000'] },
-      { id:'ad_brands', text:'How many stent brands are currently on your active formulary / approved list?', type:'radio', options:['1 (single source)','2','3–4','5 or more','No formal formulary — physician discretion'] }
+      { id:'ad_brands', text:'How many stent brands are currently on your active formulary / approved list?', type:'radio', options:['1 (single source)','2','3–4','5 or more','No formal formulary'] }
     ]
   },
-  { title: 'Evidence & Quality', lens: 'evidence', lensLabel: 'Clinical Evidence in Procurement', intro: 'These questions assess how clinical outcomes evidence factors into your procurement and formulary decisions.', questions: [
+  { title: 'Evidence & Quality', lens: 'evidence', lensLabel: 'Clinical Evidence in Procurement', intro: 'These questions assess how clinical outcomes evidence factors into your procurement decisions.', questions: [
       { id:'ad_e1', text:'Clinical outcomes evidence is a <strong>formal, documented criterion</strong> in our stent procurement or tender process.', ...LIKERT5 },
       { id:'ad_e2', text:'Our hospital <strong>tracks re-admission or re-PCI rates</strong> by stent brand used.', ...LIKERT5 },
-      { id:'ad_e3', text:'The clinical committee (cardiologists / HoD) has <strong>final authority</strong> on stent formulary inclusion — above procurement decisions.', ...LIKERT5 },
-      { id:'ad_e4', text:'We would require a <strong>health technology assessment (HTA) or value dossier</strong> before adding a premium-priced stent to our formulary.', ...LIKERT5 }
+      { id:'ad_e3', text:'The clinical committee has <strong>final authority</strong> on stent formulary inclusion — above procurement decisions.', ...LIKERT5 },
+      { id:'ad_e4', text:'We would require a <strong>health technology assessment (HTA)</strong> before adding a premium-priced stent to our formulary.', ...LIKERT5 }
     ]
   },
-  { title: 'Operational Experience', lens: 'experience', lensLabel: 'Vendor Reliability & Service', intro: 'Explore how vendor service performance and operational factors shape your procurement decisions.', questions: [
+  { title: 'Operational Experience', lens: 'experience', lensLabel: 'Vendor Reliability & Service', intro: 'Explore how vendor service performance shapes your procurement decisions.', questions: [
       { id:'ad_x1', text:'<strong>Supply reliability</strong> is as important as unit price in our stent vendor selection criteria.', ...LIKERT5 },
       { id:'ad_x2', text:'We have experienced <strong>significant supply disruptions</strong> from a stent vendor in the past 2 years.', ...LIKERT5 },
-      { id:'ad_x3', text:'Stent inventory management and working capital tied up in stent stock is a <strong>notable operational pain point.</strong>', ...LIKERT5 },
-      { id:'ad_x4', text:'We value vendors who provide <strong>in-lab clinical and technical support</strong> as part of their service, not just product supply.', ...LIKERT5 },
-      { id:'ad_x5', text:'Switching our primary stent brand would require <strong>significant internal alignment</strong> (clinical committee, procurement, finance).', ...LIKERT5 }
+      { id:'ad_x3', text:'Stent inventory management is a <strong>notable operational pain point.</strong>', ...LIKERT5 },
+      { id:'ad_x4', text:'We value vendors who provide <strong>in-lab clinical and technical support</strong>.', ...LIKERT5 },
+      { id:'ad_x5', text:'Switching our primary stent brand would require <strong>significant internal alignment</strong>.', ...LIKERT5 }
     ]
   },
-  { title: 'Economics & Procurement', lens: 'economics', lensLabel: 'Financial Drivers & Procurement Models', intro: 'These questions map the economic framework governing stent procurement at your institution.', questions: [
+  { title: 'Economics & Procurement', lens: 'economics', lensLabel: 'Financial Drivers & Procurement Models', intro: 'These questions map the economic framework governing stent procurement.', questions: [
       { id:'ad_ec1', text:'<strong>Unit price</strong> is the primary — often only — determinant in our stent procurement decisions.', ...LIKERT5, reverse:true },
       { id:'ad_ec2', text:'We would consider a higher-priced stent if a credible <strong>total-cost-of-care model</strong> demonstrated net savings to the hospital.', ...LIKERT5 },
       { id:'ad_ec3', text:'<strong>NPPA price caps or government pricing regulations</strong> significantly constrain our ability to include premium stent options.', ...LIKERT5 },
       { id:'ad_ec4', text:'We have used or would consider <strong>consignment or VMI procurement models</strong> for high-value cardiovascular devices.', ...LIKERT5 },
       { id:'ad_ec5', text:'Our procurement process is primarily <strong>tender-driven with lowest-price-wins</strong> as the dominant criterion.', ...LIKERT5, reverse:true },
-      { id:'ad_contract', text:'Which contracting model does your institution currently use for stents?', type:'radio', options:['Annual tender — lowest price wins','Approved vendor list — physician discretion within list','Consignment / pay-on-use model','VMI (vendor-managed inventory)','Combination of above','Ad hoc / no formal process'] }
+      { id:'ad_contract', text:'Which contracting model does your institution currently use for stents?', type:'radio', options:['Annual tender — lowest price wins','Approved vendor list — physician discretion','Consignment / pay-on-use model','VMI (vendor-managed inventory)','Combination of above','Ad hoc / no formal process'] }
     ]
   }
 ],
 payer: [
-  { title: 'Respondent Background', lens: 'demo', lensLabel: 'Payer Organisation Profile', intro: 'This section establishes your organisation type and coverage scope for analytical segmentation.', questions: [
-      { id:'py_type', text:'Which best describes your organisation?', type:'radio', options:['Private health insurer','Government scheme (PMJAY / State scheme)','Corporate self-insured employer','Third-party administrator (TPA)','Regulated insurance fund / society'] },
+  { title: 'Respondent Background', lens: 'demo', lensLabel: 'Payer Organisation Profile', intro: 'This section establishes your organisation type.', questions: [
+      { id:'py_type', text:'Which best describes your organisation?', type:'radio', options:['Private health insurer','Government scheme','Corporate self-insured employer','Third-party administrator (TPA)','Regulated insurance fund'] },
       { id:'py_lives', text:'Approximate number of lives / beneficiaries covered:', type:'radio', options:['< 50,000','50,000–500,000','500,001–2 million','2–10 million','> 10 million'] },
       { id:'py_pci', text:'Approximate number of PCI claims you process annually:', type:'radio', options:['< 500','500–2,000','2,001–10,000','10,001–50,000','> 50,000'] },
       { id:'py_role', text:'Your role in relation to PCI reimbursement decisions:', type:'radio', options:['Policy / tariff setting','Claims adjudication','Medical director / clinical review','Finance / actuarial','Provider network management'] }
     ]
   },
-  { title: 'Evidence & HTA', lens: 'evidence', lensLabel: 'Evidence Use in Coverage Decisions', intro: 'These questions assess how clinical and health-economic evidence is incorporated into your coverage and tariff decisions.', questions: [
-      { id:'py_e1', text:'Our organisation <strong>differentiates reimbursement</strong> based on stent type, technology class, or outcomes evidence.', ...LIKERT5 },
-      { id:'py_e2', text:'We have an <strong>internal health technology assessment (HTA)</strong> capability or process for evaluating new devices.', ...LIKERT5 },
-      { id:'py_e3', text:'We <strong>actively monitor stent-related outcomes</strong> (re-PCI, readmission, MACE) in our claims data by product or provider.', ...LIKERT5 },
+  { title: 'Evidence & HTA', lens: 'evidence', lensLabel: 'Evidence Use in Coverage Decisions', intro: 'These questions assess how clinical and health-economic evidence is incorporated.', questions: [
+      { id:'py_e1', text:'Our organisation <strong>differentiates reimbursement</strong> based on stent type or outcomes evidence.', ...LIKERT5 },
+      { id:'py_e2', text:'We have an <strong>internal health technology assessment (HTA)</strong> capability for evaluating new devices.', ...LIKERT5 },
+      { id:'py_e3', text:'We <strong>actively monitor stent-related outcomes</strong> in our claims data by product or provider.', ...LIKERT5 },
       { id:'py_e4', text:'We would increase tariffs or create a <strong>separate premium reimbursement category</strong> for a stent with proven superior outcomes.', ...LIKERT5 }
     ]
   },
-  { title: 'Experience & Utilisation', lens: 'experience', lensLabel: 'PCI Claims Experience & Concerns', intro: 'This section explores your experiential lens on PCI utilisation and your engagement history with device companies.', questions: [
+  { title: 'Experience & Utilisation', lens: 'experience', lensLabel: 'PCI Claims Experience & Concerns', intro: 'This section explores your experiential lens on PCI utilisation.', questions: [
       { id:'py_x1', text:'We have <strong>active concerns about PCI overuse or inappropriate stenting</strong> in our claims population.', ...LIKERT5 },
       { id:'py_x2', text:'We use <strong>pre-authorisation protocols</strong> for elective PCI procedures.', ...LIKERT5 },
       { id:'py_x3', text:'We have had meaningful prior engagement with <strong>device manufacturers on clinical or economic evidence</strong> for stents.', ...LIKERT5 },
-      { id:'py_x4', text:'The media controversy in India around <strong>unnecessary stenting</strong> has influenced our coverage or utilisation management policies.', ...LIKERT5 }
+      { id:'py_x4', text:'The media controversy in India around <strong>unnecessary stenting</strong> has influenced our coverage policies.', ...LIKERT5 }
     ]
   },
-  { title: 'Economics & Value Contracting', lens: 'economics', lensLabel: 'Reimbursement Structure & Value-Based Appetite', intro: 'Map the economic framework of your PCI reimbursement and your openness to value-based or outcomes-linked arrangements.', questions: [
-      { id:'py_ec1', text:'PCI with stenting at our organisation is reimbursed via a <strong>bundled DRG</strong> (vs itemised / device-pass-through billing).', ...LIKERT5 },
+  { title: 'Economics & Value Contracting', lens: 'economics', lensLabel: 'Reimbursement Structure & Value-Based Appetite', intro: 'Map the economic framework of your PCI reimbursement.', questions: [
+      { id:'py_ec1', text:'PCI with stenting at our organisation is reimbursed via a <strong>bundled DRG</strong>.', ...LIKERT5 },
       { id:'py_ec2', text:'There is currently <strong>no financial mechanism</strong> in our reimbursement structure that allows us to reward a premium-priced stent.', ...LIKERT5, reverse:true },
       { id:'py_ec3', text:'We would seriously consider an <strong>outcomes-linked or risk-sharing contract</strong> with a device company if outcomes data was credible.', ...LIKERT5 },
       { id:'py_ec4', text:'We have prior precedent — in any device category — for <strong>outcomes-linked or pay-for-performance</strong> contracting.', ...LIKERT5 },
-      { id:'py_reimb', text:'How is PCI with stent reimbursed in your primary scheme?', type:'radio', options:['Bundled DRG — fixed package inclusive of stent','Itemised — stent billed separately at cost / approved price','Scheme tariff (fixed by government / regulator)','Mixed — depends on provider tier','We do not have a defined stent reimbursement policy'] },
-      { id:'py_pilot', text:'Appetite for a value-based contract pilot for a differentiated DES (select all that apply):', type:'check', options:['Yes — open to a formal pilot with strong outcomes data','Possible — would need an internal business case','Unlikely — our structure does not support it','No — too complex / no regulatory basis','Unsure — would need to explore internally'] }
+      { id:'py_reimb', text:'How is PCI with stent reimbursed in your primary scheme?', type:'radio', options:['Bundled DRG','Itemised billing','Scheme tariff','Mixed','No defined policy'] },
+      { id:'py_pilot', text:'Appetite for a value-based contract pilot for a differentiated DES:', type:'check', options:['Yes — open to a formal pilot','Possible — would need internal business case','Unlikely — our structure does not support it','No — too complex','Unsure'] }
     ]
   }
 ],
 gp: [
-  { title: 'Respondent Background', lens: 'demo', lensLabel: 'Practice Profile', intro: 'Please provide basic context about your practice. This helps us contextualise your referral patterns and knowledge baseline.', questions: [
-      { id:'gp_set', text:'Primary practice setting:', type:'radio', options:['Solo private clinic','Group practice / polyclinic','Urban primary health centre / PHC','Corporate / employer clinic','Rural health sub-centre','Hospital-based OPD (non-specialist)'] },
+  { title: 'Respondent Background', lens: 'demo', lensLabel: 'Practice Profile', intro: 'Please provide basic context about your practice.', questions: [
+      { id:'gp_set', text:'Primary practice setting:', type:'radio', options:['Solo private clinic','Group practice / polyclinic','Urban primary health centre / PHC','Corporate / employer clinic','Rural health sub-centre','Hospital-based OPD'] },
       { id:'gp_yrs', text:'Years in general / primary care practice:', type:'radio', options:['< 3 years','3–7 years','8–15 years','> 15 years'] },
       { id:'gp_geo', text:'Geographic location:', type:'radio', options:['Tier-1 metro','Tier-2 city','Tier-3 / semi-urban','Rural / sub-district'] },
-      { id:'gp_cad', text:'Approximately how many patients presenting with possible CAD, chest pain, or cardiac risk factors do you see per month?', type:'radio', options:['< 5','5–15','16–30','> 30'] }
+      { id:'gp_cad', text:'Approximately how many patients presenting with possible CAD do you see per month?', type:'radio', options:['< 5','5–15','16–30','> 30'] }
     ]
   },
-  { title: 'Knowledge & Awareness', lens: 'evidence', lensLabel: 'PCI Knowledge & Evidence Awareness', intro: 'These questions assess your current knowledge and confidence around PCI indications and stent technology — no expert knowledge is assumed.', questions: [
-      { id:'gp_e1', text:'I am <strong>confident in identifying patients</strong> who require cardiology referral for possible PCI (vs medical management).', ...LIKERT5 },
-      { id:'gp_e2', text:'I can accurately <strong>explain to patients what a stent is</strong> and what to expect in terms of outcomes and limitations after PCI.', ...LIKERT5 },
-      { id:'gp_e3', text:'I am aware of <strong>current evidence-based guidelines for PCI indications</strong> (stable CAD vs ACS vs NSTEMI, etc.).', ...LIKERT5 },
-      { id:'gp_e4', text:'The media controversy around <strong>unnecessary stenting</strong> in India has made me more hesitant when considering referring patients for PCI.', ...LIKERT5 },
-      { id:'gp_e5', text:'I <strong>receive regular clinical updates</strong> from cardiologists about stent technology, outcomes, and post-PCI care expectations.', ...LIKERT5 }
+  { title: 'Knowledge & Awareness', lens: 'evidence', lensLabel: 'PCI Knowledge & Evidence Awareness', intro: 'These questions assess your current knowledge and confidence around PCI indications.', questions: [
+      { id:'gp_e1', text:'I am <strong>confident in identifying patients</strong> who require cardiology referral for possible PCI.', ...LIKERT5 },
+      { id:'gp_e2', text:'I can accurately <strong>explain to patients what a stent is</strong> and what to expect.', ...LIKERT5 },
+      { id:'gp_e3', text:'I am aware of <strong>current evidence-based guidelines for PCI indications</strong>.', ...LIKERT5 },
+      { id:'gp_e4', text:'The media controversy around <strong>unnecessary stenting</strong> has made me more hesitant when considering referring patients for PCI.', ...LIKERT5 },
+      { id:'gp_e5', text:'I <strong>receive regular clinical updates</strong> from cardiologists about stent technology and post-PCI care.', ...LIKERT5 }
     ]
   },
-  { title: 'Referral Experience', lens: 'experience', lensLabel: 'Referral Practice & Post-PCI Communication', intro: 'Explore your real-world referral experience and the quality of feedback loops with cardiologists.', questions: [
+  { title: 'Referral Experience', lens: 'experience', lensLabel: 'Referral Practice & Post-PCI Communication', intro: 'Explore your real-world referral experience.', questions: [
       { id:'gp_x1', text:'I receive <strong>structured, detailed discharge summaries</strong> from cardiologists after my patients undergo PCI.', ...LIKERT5 },
-      { id:'gp_x2', text:'My patients return from PCI with <strong>adequate understanding</strong> of their stent, medication, and follow-up plan.', ...LIKERT5 },
-      { id:'gp_x3', text:'I am <strong>confident counselling post-PCI patients</strong> on DAPT adherence, warning signs, and lifestyle modification.', ...LIKERT5 },
+      { id:'gp_x2', text:'My patients return from PCI with <strong>adequate understanding</strong> of their stent and follow-up plan.', ...LIKERT5 },
+      { id:'gp_x3', text:'I am <strong>confident counselling post-PCI patients</strong> on DAPT adherence and lifestyle modification.', ...LIKERT5 },
       { id:'gp_x4', text:'My <strong>referral pathway to interventional cardiology</strong> is clear, efficient, and results in timely specialist review.', ...LIKERT5 },
       { id:'gp_x5', text:'I have had patients experience <strong>adverse cardiac events after PCI</strong> that I believe may have been preventable with better post-discharge education.', ...LIKERT5 }
     ]
   },
-  { title: 'Economics & Barriers', lens: 'economics', lensLabel: 'Financial & Structural Referral Barriers', intro: 'These questions identify economic and structural factors that may delay or prevent appropriate referral.', questions: [
-      { id:'gp_ec1', text:'<strong>Patient affordability concerns</strong> sometimes cause me to delay or avoid referring patients for PCI, even when clinically indicated.', ...LIKERT5 },
-      { id:'gp_ec2', text:'I am aware of which centres in my area offer <strong>affordable or government-scheme-linked PCI</strong> for patients with limited resources.', ...LIKERT5 },
-      { id:'gp_ec3', text:'The <strong>cost of DAPT medication</strong> after PCI is a concern I frequently encounter when following up my referred patients.', ...LIKERT5 },
-      { id:'gp_ec4', text:'I would benefit from <strong>clear referral decision tools</strong> (risk scores, symptom algorithms) to improve my confidence and reduce unnecessary referrals.', ...LIKERT5 },
-      { id:'gp_cme', text:'What CME formats are most useful for improving your management of cardiac patients? (Select all that apply)', type:'check', options:['Live cardiology-led CME meetings','Digital / online modules (self-paced)','Case-based peer discussions with cardiologists','Short printed quick-reference guides','Smartphone app with decision support tools','Monthly email updates from cardiologists','Structured referral feedback loops'] }
+  { title: 'Economics & Barriers', lens: 'economics', lensLabel: 'Financial & Structural Referral Barriers', intro: 'These questions identify economic and structural factors that may delay appropriate referral.', questions: [
+      { id:'gp_ec1', text:'<strong>Patient affordability concerns</strong> sometimes cause me to delay or avoid referring patients for PCI.', ...LIKERT5 },
+      { id:'gp_ec2', text:'I am aware of which centres in my area offer <strong>affordable or government-scheme-linked PCI</strong>.', ...LIKERT5 },
+      { id:'gp_ec3', text:'The <strong>cost of DAPT medication</strong> after PCI is a concern I frequently encounter.', ...LIKERT5 },
+      { id:'gp_ec4', text:'I would benefit from <strong>clear referral decision tools</strong> to improve my confidence.', ...LIKERT5 },
+      { id:'gp_cme', text:'What CME formats are most useful for improving your management of cardiac patients?', type:'check', options:['Live cardiology-led CME meetings','Digital / online modules','Case-based peer discussions','Short printed quick-reference guides','Smartphone app with decision support tools','Monthly email updates from cardiologists','Structured referral feedback loops'] }
     ]
   }
 ],
 patient: [
-  { title: 'Respondent Background', lens: 'demo', lensLabel: 'Personal & Procedure Background', intro: 'Thank you for participating. Your responses help us improve how patients are educated and supported after a heart procedure. There are no right or wrong answers.', questions: [
+  { title: 'Respondent Background', lens: 'demo', lensLabel: 'Personal & Procedure Background', intro: 'Thank you for participating. There are no right or wrong answers.', questions: [
       { id:'pt_age', text:'Your age group:', type:'radio', options:['Below 35','35–44','45–54','55–64','65–74','75 and above'] },
       { id:'pt_gen', text:'Gender:', type:'radio', options:['Male','Female','Prefer not to say'] },
       { id:'pt_edu', text:'Highest level of education completed:', type:'radio', options:['No formal education','Primary school','Secondary school','Higher secondary (12th)','Graduate degree','Post-graduate or above'] },
-      { id:'pt_ins', text:'Your primary source of payment for this procedure:', type:'radio', options:['Private health insurance','Government scheme (e.g., PMJAY, CGHS, ESIC)','Employer-provided coverage','Self-pay (out of pocket)','Combination of above'] },
+      { id:'pt_ins', text:'Your primary source of payment for this procedure:', type:'radio', options:['Private health insurance','Government scheme','Employer-provided coverage','Self-pay (out of pocket)','Combination of above'] },
       { id:'pt_time', text:'How long ago did you have your stent procedure?', type:'radio', options:['Less than 1 month','1–3 months','3–6 months','6 months to 1 year','More than 1 year ago'] },
       { id:'pt_dis_prog', text:'How well do you understand how coronary artery disease progresses over time?', type:'radio', options:['I don\'t understand it at all', 'I know a little, but need more information', 'I understand the basics', 'I fully understand how and why it progresses'] },
       { id:'pt_exp_out', text:'What is your primary expectation regarding the outcome of your stent procedure?', type:'radio', options:['Complete cure with no further heart issues', 'Reduction in daily symptoms (like chest pain)', 'Prevention of a future major heart attack', 'Improved ability to do physical activities', 'Not sure what to expect'] },
       { id:'pt_hlth_lit', text:'How often do you need help reading hospital materials or understanding medical instructions?', type:'radio', options:['Always', 'Often', 'Sometimes', 'Rarely', 'Never'] }
     ]
   },
-  { title: 'Understanding & Awareness', lens: 'evidence', lensLabel: 'Knowledge of Your Procedure & Condition', intro: 'These questions help us understand how well patients are informed about their heart procedure. Please answer based on your genuine understanding.', questions: [
+  { title: 'Understanding & Awareness', lens: 'evidence', lensLabel: 'Knowledge of Your Procedure', intro: 'These questions help us understand how well patients are informed about their heart procedure.', questions: [
       { id:'pt_e1', text:'Before my procedure, I understood <strong>what a stent was and what it would do</strong> for my heart.', ...LIKERT5 },
       { id:'pt_e2', text:'I know the <strong>name or type of stent</strong> that was placed in my heart arteries.', ...LIKERT5 },
-      { id:'pt_e3', text:'I understand that having a stent <strong>does not fully cure my heart disease</strong> — I still need to manage risk factors and take medications.', ...LIKERT5, reverse:false },
-      { id:'pt_e4', text:'I know the <strong>warning signs</strong> that should prompt me to seek emergency care after my stent procedure (e.g., chest pain, breathlessness).', ...LIKERT5 },
-      { id:'pt_e5', text:'I received <strong>clear written information</strong> about my procedure, my medications, and what to watch out for — before I was discharged.', ...LIKERT5 }
+      { id:'pt_e3', text:'I understand that having a stent <strong>does not fully cure my heart disease</strong>.', ...LIKERT5, reverse:false },
+      { id:'pt_e4', text:'I know the <strong>warning signs</strong> that should prompt me to seek emergency care.', ...LIKERT5 },
+      { id:'pt_e5', text:'I received <strong>clear written information</strong> about my procedure, my medications, and what to watch out for.', ...LIKERT5 }
     ]
   },
-  { title: 'Procedure Experience', lens: 'experience', lensLabel: 'Your Care & Discharge Experience', intro: 'We want to understand how well you were supported before, during, and after your heart procedure.', questions: [
+  { title: 'Procedure Experience', lens: 'experience', lensLabel: 'Your Care & Discharge Experience', intro: 'We want to understand how well you were supported.', questions: [
       { id:'pt_x1', text:'The medical team explained my procedure to me <strong>in a way I could clearly understand.</strong>', ...LIKERT5 },
-      { id:'pt_x2', text:'I felt <strong>involved in the decision</strong> to have a stent placed — it wasn\'t just decided for me without my understanding.', ...LIKERT5 },
+      { id:'pt_x2', text:'I felt <strong>involved in the decision</strong> to have a stent placed.', ...LIKERT5 },
       { id:'pt_x3', text:'My discharge counselling was <strong>thorough</strong> and I felt prepared and confident when I left the hospital.', ...LIKERT5 },
-      { id:'pt_x4', text:'A <strong>family member or caregiver</strong> was included in my discharge education and understands my medication and care plan.', ...LIKERT5 },
+      { id:'pt_x4', text:'A <strong>family member or caregiver</strong> was included in my discharge education.', ...LIKERT5 },
       { id:'pt_x5', text:'Since my procedure, I have had <strong>symptoms or concerns I wasn\'t sure how to manage</strong> and didn\'t know who to contact.', ...LIKERT5, reverse:false }
     ]
   },
-  { title: 'Adherence & Support', lens: 'economics', lensLabel: 'Medication Adherence & Support Needs', intro: 'These questions help identify barriers to following your prescribed treatment plan after going home.', questions: [
+  { title: 'Adherence & Support', lens: 'economics', lensLabel: 'Medication Adherence & Support Needs', intro: 'These questions help identify barriers to following your prescribed treatment plan.', questions: [
       { id:'pt_ec1', text:'I am taking <strong>all my medications exactly as prescribed</strong>, including both blood thinners (DAPT).', ...LIKERT5, reverse:false },
       { id:'pt_ec2', text:'The <strong>cost of my medications</strong> after discharge is manageable for me and my family.', ...LIKERT5 },
       { id:'pt_ec3', text:'I have attended <strong>all my scheduled follow-up appointments</strong> since my procedure.', ...LIKERT5 },
       { id:'pt_ec4', text:'I have had to <strong>skip or reduce my medications</strong> at any point because of cost.', ...LIKERT5, reverse:true },
-      { id:'pt_support', text:'Which of the following support tools would help you most after your procedure? (Select all that apply)', type:'check', options:['SMS / WhatsApp reminders for medications','Regular check-in calls from the hospital','Written guide in my local language','Mobile app with my care plan and reminders','Online video explaining my condition','Cardiac rehabilitation programme','Support group with other patients who had stents'] },
+      { id:'pt_support', text:'Which of the following support tools would help you most after your procedure?', type:'check', options:['SMS / WhatsApp reminders for medications','Regular check-in calls from the hospital','Written guide in my local language','Mobile app with my care plan and reminders','Online video explaining my condition','Cardiac rehabilitation programme','Support group with other patients who had stents'] },
       { id:'pt_info', text:'Where did you get most of your information about your heart procedure and recovery?', type:'radio', options:['My cardiologist / heart specialist','Nursing staff at the hospital','Written materials given at hospital','Family or friends','Internet / social media','I didn\'t receive enough information'] }
     ]
   }
@@ -505,8 +373,7 @@ function startSurvey(cohort) {
   currentCohort = cohort; currentSection = 0; responses = {};
   document.getElementById('landing').style.display = 'none';
   document.getElementById('q-shell').classList.add('active');
-  const cl = COHORT_LABELS[cohort];
-  document.getElementById('q-badge').textContent = cl.badge;
+  document.getElementById('q-badge').textContent = COHORT_LABELS[cohort].badge;
   buildStepDots(); renderSection();
 }
 
@@ -515,7 +382,6 @@ function goHome() {
   document.getElementById('report-shell').classList.remove('active');
   document.getElementById('landing').style.display = '';
   currentCohort = null; currentSection = 0; responses = {};
-  Object.values(charts).forEach(c => c && c.destroy()); charts = {};
 }
 
 function buildStepDots() {
@@ -533,25 +399,20 @@ function updateDots() {
 function renderSection() {
   const sections = SURVEYS[currentCohort];
   const sec = sections[currentSection];
-  const total = sections.length;
-  const pct = Math.round((currentSection / total) * 100);
+  const pct = Math.round((currentSection / sections.length) * 100);
   document.getElementById('progress-fill').style.width = pct + '%';
-  document.getElementById('progress-text').textContent = `Section ${currentSection+1} of ${total}`;
+  document.getElementById('progress-text').textContent = `Section ${currentSection+1} of ${sections.length}`;
   document.getElementById('q-secname').textContent = sec.title;
   updateDots();
 
-  const lensColors = { demo:'lens-demo', evidence:'lens-bg', experience:'lens-exp', economics:'lens-econ' };
-  let html = `<div class="section-intro">
-    <span class="s-lens ${lensColors[sec.lens]||'lens-bg'}">${sec.lensLabel}</span>
-    <h2>${sec.title}</h2><p>${sec.intro}</p></div>`;
-
+  let html = `<div class="section-intro"><span class="s-lens lens-bg">${sec.lensLabel}</span><h2>${sec.title}</h2><p>${sec.intro}</p></div>`;
   sec.questions.forEach((q, qi) => { html += renderQuestion(q, qi); });
 
   const isLast = currentSection === sections.length - 1;
   html += `<div class="q-nav">
     ${currentSection > 0 ? `<button class="btn-sec" onclick="prevSection()">← Previous</button>` : `<div></div>`}
-    <div class="q-nav-info">Section ${currentSection+1} / ${total}</div>
-    <button class="btn-primary" onclick="nextSection()">${isLast ? '📊 Generate Analysis Report' : 'Next Section →'}</button>
+    <div class="q-nav-info">Section ${currentSection+1} / ${sections.length}</div>
+    <button class="btn-primary" onclick="nextSection()">${isLast ? 'Submit Questionnaire ✓' : 'Next Section →'}</button>
   </div>`;
 
   document.getElementById('q-body').innerHTML = html;
@@ -581,7 +442,7 @@ function renderQuestion(q, qi) {
     inputHtml = q.poles.map((pair, pi) => `<div style="margin-bottom:18px"><div style="font-size:11.5px;color:var(--text3);margin-bottom:8px;font-style:italic">${pair[0]} ↔ ${pair[1]}</div><div class="semantic-wrap"><span class="semantic-pole">${pair[0]}</span><div class="semantic-scale">${Array.from({length:7},(_,si)=>`<div class="sem-btn" data-qid="${q.id}_${pi}" data-val="${si+1}" onclick="selectSemantic('${q.id}_${pi}',${si+1},this)"></div>`).join('')}</div><span class="semantic-pole right">${pair[1]}</span></div></div>`).join('');
   }
 
-  return `<div class="q-card" id="qcard-${q.id}"><div class="q-num">${qNum}</div><div class="q-text">${q.text} <span class="q-required">*</span></div>${q.psycho ? `<div class="psycho-note">📐 Scale: ${q.psycho}</div>` : ''}${inputHtml}<div class="validation-msg" id="vmsg-${q.id}">Please answer this question to continue.</div></div>`;
+  return `<div class="q-card" id="qcard-${q.id}"><div class="q-num">${qNum}</div><div class="q-text">${q.text} <span class="q-required">*</span></div>${inputHtml}<div class="validation-msg" id="vmsg-${q.id}">Please answer this question to continue.</div></div>`;
 }
 
 function bindQuestionInteractions() {
@@ -593,14 +454,6 @@ function bindQuestionInteractions() {
       item.addEventListener('dragover', e=>{ e.preventDefault(); const rect=item.getBoundingClientRect(); const mid=rect.top+rect.height/2; if(e.clientY < mid) list.insertBefore(dragging,item); else list.insertBefore(dragging,item.nextSibling); });
     });
   });
-  document.querySelectorAll('.vas-slider').forEach(s => {
-    s.addEventListener('input', function() {
-      const pct = ((this.value-this.min)/(this.max-this.min))*100;
-      this.style.setProperty('--pct', pct+'%');
-      if(this.dataset.vid) document.getElementById(this.dataset.vid).textContent = this.value;
-      responses[this.dataset.qid] = parseInt(this.value);
-    });
-  });
 }
 
 function updateRankResponse(list) {
@@ -610,33 +463,11 @@ function updateRankResponse(list) {
   responses[qid] = order;
 }
 
-function selectLikert(qid, val, btn) {
-  document.getElementById('qcard-'+qid).querySelectorAll('.likert-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected'); responses[qid] = val; hideMsgValid(qid);
-}
-
-function selectRadio(qid, val, label) {
-  document.getElementById('qcard-'+qid).querySelectorAll('.radio-opt').forEach(o => o.classList.remove('selected'));
-  label.classList.add('selected'); responses[qid] = val; hideMsgValid(qid);
-}
-
-function toggleCheck(qid, val, label) {
-  label.classList.toggle('selected');
-  if (!responses[qid]) responses[qid] = [];
-  const idx = responses[qid].indexOf(val);
-  if(idx > -1) responses[qid].splice(idx,1); else responses[qid].push(val);
-  hideMsgValid(qid);
-}
-
-function selectSemantic(qid, val, btn) {
-  btn.parentElement.querySelectorAll('.sem-btn').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected'); responses[qid] = val; hideMsgValid(qid.split('_')[0]);
-}
-
-function hideMsgValid(qid) {
-  const msg = document.getElementById('vmsg-'+qid); const card = document.getElementById('qcard-'+qid);
-  if(msg) msg.classList.remove('show'); if(card) card.classList.remove('invalid');
-}
+function selectLikert(qid, val, btn) { document.getElementById('qcard-'+qid).querySelectorAll('.likert-btn').forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); responses[qid] = val; hideMsgValid(qid); }
+function selectRadio(qid, val, label) { document.getElementById('qcard-'+qid).querySelectorAll('.radio-opt').forEach(o => o.classList.remove('selected')); label.classList.add('selected'); responses[qid] = val; hideMsgValid(qid); }
+function toggleCheck(qid, val, label) { label.classList.toggle('selected'); if (!responses[qid]) responses[qid] = []; const idx = responses[qid].indexOf(val); if(idx > -1) responses[qid].splice(idx,1); else responses[qid].push(val); hideMsgValid(qid); }
+function selectSemantic(qid, val, btn) { btn.parentElement.querySelectorAll('.sem-btn').forEach(b => b.classList.remove('selected')); btn.classList.add('selected'); responses[qid] = val; hideMsgValid(qid.split('_')[0]); }
+function hideMsgValid(qid) { const msg = document.getElementById('vmsg-'+qid); const card = document.getElementById('qcard-'+qid); if(msg) msg.classList.remove('show'); if(card) card.classList.remove('invalid'); }
 
 function validateSection() {
   let allValid = true;
@@ -675,19 +506,19 @@ function getLikertScore(ids, maxScale) {
   return Math.round((((vals.reduce((a,b)=>a+b,0)/vals.length)-1)/(maxScale-1))*100);
 }
 
-// ========= BACKEND INTEGRATION & REPORT GENERATION ========= 
+// ========= BACKEND INTEGRATION & SUBMISSION ========= 
 async function generateReport() {
   document.getElementById('q-shell').classList.remove('active');
-  const cl = COHORT_LABELS[currentCohort];
   
-  // 1. Prepare data payload
+  // 1. Prepare full data payload (Calculates report but sends to server instead of showing to user)
   const analysis = analyseResponses();
   const payload = {
     timestamp: new Date().toISOString(),
     cohort: currentCohort,
     responses: responses,
     calculatedScores: analysis.scores,
-    segment: analysis.segment
+    segment: analysis.segment,
+    fullAnalysis: analysis // Sending the entire detailed report to the Admin
   };
 
   // 2. Submit to server silently
@@ -701,26 +532,14 @@ async function generateReport() {
     console.error("Failed to save data to server:", error);
   }
 
-  // 3. Render local report for the user
-  document.getElementById('r-meta').textContent = `Outcome Analysis Report · ${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}`;
-  document.getElementById('r-title').textContent = `Behavioral Decision Driver Analysis`;
-  document.getElementById('r-subtitle').textContent = `Psychometric-based outcome report · ${cl.label}`;
-  document.getElementById('r-cohort-badge').innerHTML = `${cl.icon} ${cl.label}`;
-
-  const body = document.getElementById('report-body');
-  body.innerHTML = '<p style="color:var(--text2);padding:40px 0;text-align:center;">Calculating analysis...</p>';
+  // 3. Render 'Thank You' Screen for the User
   document.getElementById('report-shell').classList.add('active');
-
-  setTimeout(() => {
-    body.innerHTML = buildReportHTML(analysis);
-    renderCharts(analysis);
-    window.scrollTo({top:0});
-  }, 600);
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
 function analyseResponses() {
   const cohort = currentCohort;
-  let analysis = { cohort, scores:{}, segment:'', segmentDesc:'', confidence:0, gaps:[], findings:[], recs:[], radarLabels:[], radarData:[], barLabels:[], barData:[] };
+  let analysis = { cohort, scores:{}, segment:'', segmentDesc:'', gaps:[], findings:[], recs:[] };
 
   if(cohort === 'ic') {
     const evidenceScore = getLikertScore(['ic_e1','ic_e2','ic_e3','ic_e4','ic_e5'],5);
@@ -728,21 +547,16 @@ function analyseResponses() {
     const econScore = getLikertScore(['ic_ec1','ic_ec2','ic_ec3','ic_ec4','ic_ec5'],5);
     const peerInfluence = responses['ic_e6'] ? Math.round(((responses['ic_e6']-1)/4)*100) : 50;
     const innovOpen = responses['ic_adopt'] !== undefined ? [90,65,45,20,30][responses['ic_adopt']] : 50;
-    const adoptReadiness = Math.round((evidenceScore*0.3 + expScore*0.25 + econScore*0.15 + innovOpen*0.3));
 
-    let seg, segDesc, conf;
+    let seg, segDesc;
     const econConst = responses['ic_ec1'] ? Math.round(((responses['ic_ec1']-1)/4)*100) : 50;
-    if(evidenceScore > 68 && econScore < 55) { seg = 'Evidence-First Guardian'; conf = 82; segDesc = 'Places primary trust in clinical data, RCTs, and guideline-based practice.'; }
-    else if(expScore > 65 && responses['ic_x2'] >= 4) { seg = 'Throughput & Outcome Optimizer'; conf = 78; segDesc = 'Driven by procedural efficiency and clinical performance in complex cases.'; }
-    else if(econConst > 65 || econScore > 68) { seg = 'Economics-Constrained Pragmatist'; conf = 75; segDesc = 'Clinical choices are materially shaped by package economics and affordability.'; }
-    else if(innovOpen > 65 && peerInfluence < 50) { seg = 'Industry-Connected Innovator'; conf = 70; segDesc = 'Early adopter, self-directed, comfortable with novel technology.'; }
-    else { seg = 'Balanced Clinical Pragmatist'; conf = 65; segDesc = 'Shows no single dominant driver — decisions blend evidence, experience, and economic pragmatism.'; }
+    if(evidenceScore > 68 && econScore < 55) { seg = 'Evidence-First Guardian'; segDesc = 'Places primary trust in clinical data, RCTs, and guideline-based practice.'; }
+    else if(expScore > 65 && responses['ic_x2'] >= 4) { seg = 'Throughput & Outcome Optimizer'; segDesc = 'Driven by procedural efficiency and clinical performance in complex cases.'; }
+    else if(econConst > 65 || econScore > 68) { seg = 'Economics-Constrained Pragmatist'; segDesc = 'Clinical choices are materially shaped by package economics and affordability.'; }
+    else if(innovOpen > 65 && peerInfluence < 50) { seg = 'Industry-Connected Innovator'; segDesc = 'Early adopter, self-directed, comfortable with novel technology.'; }
+    else { seg = 'Balanced Clinical Pragmatist'; segDesc = 'Shows no single dominant driver — decisions blend evidence, experience, and economic pragmatism.'; }
 
-    const rankQ = responses['ic_rank'];
-    const rankLabels = ['Clinical outcomes','Deliverability','Affordability','Company support','Peer endorsement','Formulary'];
-    const rankScores = rankQ ? rankQ.map((origIdx,rank) => ({label:rankLabels[origIdx], score: Math.round(100 - (rank/5)*90)})) : [];
-
-    analysis = {...analysis, scores: { evidence:evidenceScore, experience:expScore, economics:econScore, adoption:adoptReadiness }, segment: seg, segmentDesc: segDesc, confidence: conf, radarLabels: ['Evidence Trust','Procedural Experience Gap','Economic Sensitivity','Innovation Openness','Peer Influence'], radarData: [evidenceScore, expScore, econScore, innovOpen, peerInfluence], barLabels: rankScores.map(r=>r.label), barData: rankScores.map(r=>r.score),
+    analysis = {...analysis, scores: { evidence:evidenceScore, experience:expScore, economics:econScore }, segment: seg, segmentDesc: segDesc,
       gaps: [{dim:'Evidence',current:`Trust score: ${evidenceScore}/100`,desired:'Confident differentiation of your stent',gap:evidenceScore<50?'High':'Medium',lever:'Case-based evidence sessions'},{dim:'Experience',current:`Procedural index: ${expScore}/100`,desired:'First-hand positive experience',gap:expScore<50?'High':'Medium',lever:'In-lab starter case programme'},{dim:'Economics',current:`Economic index: ${econScore}/100`,desired:'Clear economic value story accepted',gap:econScore>60?'High':'Medium',lever:'Total episode cost modelling'}],
       findings: [{icon:'🧬',title:'Evidence orientation',body:`Score: ${evidenceScore}/100.`},{icon:'🔬',title:'Procedural experience',body:`Score: ${expScore}/100.`},{icon:'💰',title:'Economic context',body:`Sensitivity: ${econScore}/100.`}],
       recs: [{priority:'Priority 1',title:'Targeted Value Story',body:'Deploy a balanced message tailored across all three decision lenses.',color:'teal'},{priority:'Priority 2',title:'Peer Social Proof',body:'Introduce shared cases and testimonials from peers.',color:'amber'},{priority:'Priority 3',title:'Structured Trial',body:'Offer a structured starter case programme.',color:'purple'}]
@@ -751,98 +565,37 @@ function analyseResponses() {
     const evidScore = getLikertScore(['ad_e1','ad_e2','ad_e3','ad_e4'],5);
     const opScore = getLikertScore(['ad_x1','ad_x2','ad_x3','ad_x4','ad_x5'],5);
     const econScore = getLikertScore(['ad_ec1','ad_ec2','ad_ec3','ad_ec4','ad_ec5'],5);
-    const adoptReadiness = Math.round((evidScore*0.3 + opScore*0.25 + econScore*0.45));
-    let seg = 'Balanced Multi-Criteria Buyer'; let conf = 65; let segDesc = 'Balances price, clinical committee input, and operational factors.';
-    if(evidScore < 40 && econScore < 45) { seg='Price-Driven Transactional Buyer'; conf=80; segDesc='Procurement is dominated by unit price.'; }
-    else if(evidScore > 65) { seg='Quality-Oriented Value Buyer'; conf=76; segDesc='Clinical outcomes data formally weighted in procurement decisions.'; }
-    else if(opScore > 65 && responses['ad_x2']>=4) { seg='Reliability-Seeking Operational Buyer'; conf=72; segDesc='Past supply disruptions and operational complexity are key concerns.'; }
-    analysis = {...analysis, scores:{evidence:evidScore,experience:opScore,economics:econScore,adoption:adoptReadiness}, segment:seg, segmentDesc:segDesc, confidence:conf, radarLabels:['Evidence Criteria','Operational Reliability','Economic Flexibility','Switching Openness','Value-Based Readiness'], radarData:[evidScore,opScore,econScore,adoptReadiness,Math.min(100,econScore+10)], barLabels:['Evidence','Reliability','TCOC','IC Influence','Consignment'], barData:[evidScore,opScore,econScore,responses['ad_e3']?((responses['ad_e3']-1)/4*100):50,responses['ad_ec4']?((responses['ad_ec4']-1)/4*100):50], gaps:[], findings:[], recs:[]};
+    let seg = 'Balanced Multi-Criteria Buyer'; let segDesc = 'Balances price, clinical committee input, and operational factors.';
+    if(evidScore < 40 && econScore < 45) { seg='Price-Driven Transactional Buyer'; segDesc='Procurement is dominated by unit price.'; }
+    else if(evidScore > 65) { seg='Quality-Oriented Value Buyer'; segDesc='Clinical outcomes data formally weighted in procurement decisions.'; }
+    else if(opScore > 65 && responses['ad_x2']>=4) { seg='Reliability-Seeking Operational Buyer'; segDesc='Past supply disruptions and operational complexity are key concerns.'; }
+    analysis = {...analysis, scores:{evidence:evidScore,experience:opScore,economics:econScore}, segment:seg, segmentDesc:segDesc};
   } else if(cohort === 'payer') {
     const evidScore = getLikertScore(['py_e1','py_e2','py_e3','py_e4'],5);
     const expScore = getLikertScore(['py_x1','py_x2','py_x3','py_x4'],5);
     const econScore = getLikertScore(['py_ec1','py_ec2','py_ec3','py_ec4'],5);
-    const adoptReadiness = Math.round((evidScore*0.35 + expScore*0.15 + econScore*0.5));
-    analysis = {...analysis, scores:{evidence:evidScore,experience:expScore,economics:econScore,adoption:adoptReadiness}, segment:'Segment Calculated on Server', segmentDesc:'Detailed cohort analysis available in Admin Dashboard.', confidence:75, radarLabels:['HTA Appetite','Utilisation Concerns','Value-Based Readiness','Claims Analytics','Reform Openness'], radarData:[evidScore,100-expScore,econScore,50,adoptReadiness], barLabels:['Evidence','Monitoring','VBC Appetite','Pre-auth','Engagement'], barData:[evidScore,50,econScore,50,50], gaps:[], findings:[], recs:[]};
+    analysis = {...analysis, scores:{evidence:evidScore,experience:expScore,economics:econScore}, segment:'Segment Calculated on Server', segmentDesc:'Detailed cohort analysis available in Admin Dashboard.'};
   } else if(cohort === 'gp') {
     const knowledgeScore = getLikertScore(['gp_e1','gp_e2','gp_e3','gp_e4','gp_e5'],5);
     const expScore = getLikertScore(['gp_x1','gp_x2','gp_x3','gp_x4','gp_x5'],5);
     const econScore = getLikertScore(['gp_ec1','gp_ec2','gp_ec3','gp_ec4'],5);
-    const adoptReadiness = Math.round((knowledgeScore*0.4+expScore*0.35+econScore*0.25));
-    analysis = {...analysis, scores:{evidence:knowledgeScore,experience:expScore,economics:econScore,adoption:adoptReadiness}, segment:'Segment Calculated on Server', segmentDesc:'Detailed cohort analysis available in Admin Dashboard.', confidence:70, radarLabels:['Knowledge Confidence','Referral Pathway','Communication','Counselling','Economic Awareness'], radarData:[knowledgeScore,expScore,50,50,econScore], barLabels:['Knowledge','Confidence','Comms Quality','Counselling','Affordability'], barData:[knowledgeScore,50,expScore,50,econScore], gaps:[], findings:[], recs:[]};
+    analysis = {...analysis, scores:{evidence:knowledgeScore,experience:expScore,economics:econScore}, segment:'Segment Calculated on Server', segmentDesc:'Detailed cohort analysis available in Admin Dashboard.'};
   } else if(cohort === 'patient') {
     const knowledgeScore = getLikertScore(['pt_e1','pt_e2','pt_e3','pt_e4','pt_e5'],5);
     const expScore = getLikertScore(['pt_x1','pt_x2','pt_x3','pt_x4','pt_x5'],5);
     const adherScore = getLikertScore(['pt_ec1','pt_ec2','pt_ec3','pt_ec4'],5);
-    const adoptReadiness = Math.round((knowledgeScore*0.35+expScore*0.35+adherScore*0.3));
-    let seg = 'Moderate-Knowledge At-Risk Patient'; let conf = 68; let segDesc = 'Adequate procedure experience but knowledge gaps around residual risk and warning signs.';
-    if(knowledgeScore>70 && adherScore>65) { seg='Well-Informed Adherent Patient'; conf=82; segDesc='Strong procedural knowledge and self-reported adherence.'; }
-    else if(responses['pt_e3']!==undefined && responses['pt_e3']<3) { seg='Misconception Risk Patient'; conf=78; segDesc='"Permanent cure" misconception likely present — a critical safety gap.'; }
-    else if(adherScore < 50 || (responses['pt_ec4']>=4)) { seg='Adherence-At-Risk Patient'; conf=75; segDesc='Cost-driven or knowledge-driven adherence gaps present.'; }
+    let seg = 'Moderate-Knowledge At-Risk Patient'; let segDesc = 'Adequate procedure experience but knowledge gaps around residual risk and warning signs.';
+    if(knowledgeScore>70 && adherScore>65) { seg='Well-Informed Adherent Patient'; segDesc='Strong procedural knowledge and self-reported adherence.'; }
+    else if(responses['pt_e3']!==undefined && responses['pt_e3']<3) { seg='Misconception Risk Patient'; segDesc='"Permanent cure" misconception likely present — a critical safety gap.'; }
+    else if(adherScore < 50 || (responses['pt_ec4']>=4)) { seg='Adherence-At-Risk Patient'; segDesc='Cost-driven or knowledge-driven adherence gaps present.'; }
     
-    analysis = {...analysis, scores:{evidence:knowledgeScore,experience:expScore,economics:adherScore,adoption:adoptReadiness}, segment:seg, segmentDesc:segDesc, confidence:conf, radarLabels:['Procedural Knowledge','Discharge Experience','DAPT Adherence','Medication Affordability','Emergency Symptom Awareness'], radarData:[knowledgeScore,expScore,adherScore,responses['pt_ec2']?((responses['pt_ec2']-1)/4*100):50,responses['pt_e4']?((responses['pt_e4']-1)/4*100):50], barLabels:['Knowledge','Discharge','Adherence','Affordability','Symptom Awareness'], barData:[knowledgeScore,expScore,adherScore,responses['pt_ec2']?((responses['pt_ec2']-1)/4*100):50,responses['pt_e4']?((responses['pt_e4']-1)/4*100):50],
+    analysis = {...analysis, scores:{evidence:knowledgeScore,experience:expScore,economics:adherScore}, segment:seg, segmentDesc:segDesc,
       gaps: [{dim:'Knowledge',current:`Score: ${knowledgeScore}/100`,desired:'Patient understands residual risk and DAPT',gap:knowledgeScore<60?'High':'Medium',lever:'Discharge education bundle'},{dim:'Adherence',current:`Index: ${adherScore}/100`,desired:'100% adherence',gap:adherScore<60?'High':'Medium',lever:'Affordability and SMS support'}],
       findings: [{icon:'🧠',title:'Knowledge Profile',body:`Index: ${knowledgeScore}/100. ${responses['pt_e3']<3?'⚠️ CRITICAL: Residual risk misconception detected.':''}`},{icon:'💊',title:'DAPT Adherence',body:`Self-reported adherence: ${adherScore}/100.`}],
       recs: [{priority:'Priority 1',title:'Discharge Education Bundle',body:'Standardise visual discharge counselling.',color:'teal'},{priority:'Priority 2',title:'Digital Adherence Support',body:'Deploy SMS/WhatsApp reminders.',color:'amber'},{priority:'Priority 3',title:'Caregiver Inclusion',body:'Ensure caregiver presence at discharge.',color:'purple'}]
     };
   }
   return analysis;
-}
-
-function buildReportHTML(a) {
-  const scoreInterpret = v => v >= 75 ? 'High' : v >= 50 ? 'Moderate' : 'Low';
-  const sl = {evidence:'Evidence',experience:'Experience',economics:'Economics',adoption:'Adoption Readiness'};
-  
-  let content = '';
-  if(a.gaps && a.gaps.length > 0) {
-    content += `<div class="findings-section"><h2>Gap Analysis</h2><table class="gaps-table"><thead><tr><th>Dimension</th><th>Current State</th><th>Desired State</th><th>Gap</th><th>Lever</th></tr></thead><tbody>${a.gaps.map(g => `<tr><td>${g.dim}</td><td>${g.current}</td><td>${g.desired}</td><td><span class="gap-indicator gap-${g.gap.toLowerCase()}">${g.gap}</span></td><td>${g.lever}</td></tr>`).join('')}</tbody></table></div>`;
-    content += `<div class="findings-section"><h2>Strategic Recommendations</h2><div class="recs-grid">${a.recs.map(r => `<div class="rec-card ${r.color==='amber'?'amber-top':r.color==='purple'?'purple-top':''}"><div class="rec-priority">${r.priority}</div><h4>${r.title}</h4><p>${r.body}</p></div>`).join('')}</div></div>`;
-  } else {
-    content += `<p style="padding: 20px 0; color: var(--text2);"><em>Detailed strategic gap analysis and recommendations for this cohort are compiled within the central Medical Affairs server dashboard.</em></p>`;
-  }
-
-  return `
-  <div class="report-actions">
-    <button class="btn-primary" onclick="goHome()">← New Survey</button>
-    <button class="btn-outline" onclick="window.print()">🖨️ Print Report</button>
-  </div>
-  <div class="segment-card">
-    <div class="segment-label">Behavioural Segment Classification</div>
-    <div class="segment-name">${a.segment}</div>
-    <div class="segment-desc">${a.segmentDesc}</div>
-    <div class="segment-confidence"><span class="sc-label">Classification confidence</span><div class="sc-bar"><div class="sc-fill" style="width:${a.confidence}%"></div></div><span class="sc-pct">${a.confidence}%</span></div>
-  </div>
-  <div class="scores-grid">
-    <div class="score-card evidence"><div class="sc-dim">${sl.evidence}</div><div class="sc-val">${a.scores.evidence}</div><div class="sc-interp">${scoreInterpret(a.scores.evidence)} · /100</div></div>
-    <div class="score-card experience"><div class="sc-dim">${sl.experience}</div><div class="sc-val">${a.scores.experience}</div><div class="sc-interp">${scoreInterpret(a.scores.experience)} · /100</div></div>
-    <div class="score-card economics"><div class="sc-dim">${sl.economics}</div><div class="sc-val">${a.scores.economics}</div><div class="sc-interp">${scoreInterpret(a.scores.economics)} · /100</div></div>
-    <div class="score-card adoption"><div class="sc-dim">${sl.adoption}</div><div class="sc-val">${a.scores.adoption}</div><div class="sc-interp">${scoreInterpret(a.scores.adoption)} · /100</div></div>
-  </div>
-  <div class="charts-row">
-    <div class="chart-card"><h3>Decision Driver Radar Profile</h3><div class="chart-container"><canvas id="radarChart"></canvas></div></div>
-    <div class="chart-card"><h3>Dimension Scores</h3><div class="chart-container"><canvas id="barChart"></canvas></div></div>
-  </div>
-  ${content}`;
-}
-
-let charts = {};
-function renderCharts(a) {
-  const gridColor = 'rgba(30,53,88,0.6)'; const tickColor = 'rgba(90,120,154,0.8)';
-  const rCtx = document.getElementById('radarChart');
-  if(rCtx) {
-    charts.radar = new Chart(rCtx, {
-      type: 'radar',
-      data: { labels: a.radarLabels, datasets: [{ label: 'Profile', data: a.radarData, backgroundColor: 'rgba(0,196,204,0.15)', borderColor: '#00c4cc', borderWidth: 2, pointBackgroundColor: '#00c4cc', pointRadius: 4 }] },
-      options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { r: { min: 0, max: 100, grid: { color: gridColor }, angleLines: { color: gridColor }, ticks: { color: tickColor, font:{size:9}, stepSize:25, backdropColor:'transparent' }, pointLabels: { color: '#9ab0cc', font:{size:10.5,family:"'IBM Plex Sans', sans-serif"} } } } }
-    });
-  }
-  const bCtx = document.getElementById('barChart');
-  if(bCtx && a.barLabels.length) {
-    charts.bar = new Chart(bCtx, {
-      type: 'bar',
-      data: { labels: a.barLabels, datasets: [{ data: a.barData, backgroundColor: a.barData.map(v => v>=70?'rgba(62,207,142,0.7)':v>=45?'rgba(245,166,35,0.7)':'rgba(224,92,107,0.7)'), borderRadius: 6, borderSkipped: false }] },
-      options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { min:0, max:100, grid:{color:gridColor}, ticks:{color:tickColor,font:{size:9}} }, y: { grid:{display:false}, ticks:{color:'#9ab0cc',font:{size:10.5,family:"'IBM Plex Sans', sans-serif"}} } } }
-    });
-  }
 }
 </script>
 </body>
